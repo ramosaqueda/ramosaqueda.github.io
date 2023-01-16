@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --darkBlue:#3B4880;
+    --lightblue:#7897c3; 
+    --blue:#174A96;
+    --black:#303030;
+    --white:#fefefe;
+    --yelow:#E7B839;
+
+}
+.navbar {
+    width: 100%;
+    height: 70px;
+    background: var(--darkBlue);
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top:0px;
+    z-index: 2;
+
+    
+
+}
+
+
+.containItem {
+    display: flex;
+    align-items: center;
+}
+.item {
+   
+    list-style: none;
+    transition: 0.3s ease;
+    background: var(--darkBlue);
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    border-top: 4px solid var(--darkBlue);
+    border-bottom: 4px solid var(--darkBlue);
+    
+    margin: 0 20px;
+}
+.item:hover {
+    cursor: pointer;
+    border-top: 4px solid var(--yelow);
+    border-bottom: 4px solid  var(--yelow);
+    padding: 6px 0; 
+    transition:0.3s ease-in-out;
+}
+
+.despliegue {
+    position: relative;
+}
+
+.despliegue:hover .list {
+    opacity: 1;
+    top:70px;
+
+}
+  
+.list {
+    position:absolute;
+    top:111;
+    right: 0;
+    width: 250px;
+    height: 300px;
+    background: var(--darkBlue);
+    border: 1px solid var(--white);
+    flex-direction: column;
+    opacity: 0;
+    border-radius: 0 0 15px 15px;
+
+}
+
+.despliegue:hover .list{
+    opacity: 1;
+    top:54px;
+    transition: 1s ease-in-out;
+}
+
+.list__item{
+    width:80%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--lightblue);
+     
+}
+.img__item{
+    width: 50px;
+    height: 50px;
+}
+
+.list__buy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    width: 100%;
+    height: 80%;
+}
+.list_button{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     
+}
+.btn_buy{
+    width: 80%;
+    height: 30%;
+    background: var(--yelow);
+    color: var(--white);
+    border-radius: 30px;
+}
+.btn_buy:hover{
+    box-shadow: var(--white);
+    cursor: pointer;
+}

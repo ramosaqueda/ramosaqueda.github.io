@@ -1,0 +1,58 @@
+
+.header{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--darkBlue);
+    background-image: url('../images/bgHeader.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: contain;
+    background-position:top;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+
+}
+
+.containText {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:20px;
+    flex-direction: column;
+    margin-left: 100px;
+
+}
+.title {
+    color: var(--white);
+    font-size: 50px;
+
+}
+.parrafo {
+    color:var(--white);
+    font-size: 18px;
+}
+.btnProductos{
+    background: var(--lightblue);
+    text-decoration: none;
+    color:var(--white);
+    display: block;
+    width: 200px;
+    height: 50px;
+    text-align:center;
+    line-height: 50px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.btnProductos:hover{
+    box-shadow: 0 0 15px var(--white);
+}
+.test {
+    width: 100;
+    height: 200vh;
+    background: white;
+}
+
