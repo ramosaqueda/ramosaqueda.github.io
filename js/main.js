@@ -21,11 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchData();
 });
 
-const items = document.getElementById('products');
+const carsProducto = document.getElementById('products');
+const total_carro = document.getElementById('suma_productos');
+//templates
 const templateProducto = document.getElementById('destacados').content;
+const templateCartTotal = document.getElementById('total_productos').content;
+
 const fragment = document.createDocumentFragment();
 
-items.addEventListener('click', (e) => {
+carsProducto.addEventListener('click', (e) => {
   addCart(e);
 });
 
@@ -59,7 +63,7 @@ const paintCards = (data) => {
     const clone = templateProducto.cloneNode(true);
     fragment.appendChild(clone);
   });
-  items.appendChild(fragment);
+  carsProducto.appendChild(fragment);
 };
 
 const addCart = (e) => {
@@ -85,3 +89,5 @@ const setMyCart = (ObjCart) => {
   my_car[SelProduct.id] = { ...SelProduct };
   console.log(my_car);
 };
+
+//https://www.youtube.com/watch?v=JL7Wo-ASah4
