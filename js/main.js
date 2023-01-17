@@ -51,7 +51,8 @@ const paintCards = (data) => {
       .querySelector('img')
       .setAttribute('src', producto.thumbnail);
 
-    templateProducto.querySelector('.nameProduct').textContent = producto.title;
+    templateProducto.querySelector('h2').textContent = producto.title;
+
     templateProducto.querySelector('p').textContent = '$' + producto.price;
     templateProducto.querySelector('.add').dataset.id = producto.id;
 
@@ -63,17 +64,24 @@ const paintCards = (data) => {
 
 const addCart = (e) => {
   if (e.target.classList.contains('add')) {
-    setMyCart(e.target.parentElement);
+    setMyCart(e.target.parentElement.parentElement);
   }
   e.stopPropagation();
 };
 
 const setMyCart = (ObjCart) => {
+  console.log(ObjCart);
   const SelProduct = {
     id: ObjCart.querySelector('.add').dataset.id,
-    title: ObjCart.querySelector('.nameProduct'),
+    title: ObjCart.querySelector('h2').textContent,
     price: ObjCart.querySelector('p').textContent,
     cant: 1,
   };
-  console.log(SelProduct);
+
+  if (my_car.hasOwnProperty(SelProduct.id)) {
+    SelProduct.cant = my_car[SelProduct.id].cant + 1;
+  }
+
+  my_car[SelProduct.id] = { ...SelProduct };
+  console.log(my_car);
 };
