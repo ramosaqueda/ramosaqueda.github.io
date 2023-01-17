@@ -4,8 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
 
+    <title>Examen1</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/header.css" />
     <link rel="stylesheet" href="./assets/css/section.css" />
@@ -13,68 +24,91 @@
   </head>
   <body>
     <nav class="navbar">
-      <figure>
-        <img src="./assets/images/logo1.png" alt="" height="70px" />
-      </figure>
-      <ul class="containItem">
-        <li class="item"> <a href="#"> Inicio</a></li>
-        <li class="item">Nosotros</li>
-        <li class="item">Tiendas</li>
-        <li class="item">Contacto</li>
-        <li class="item despliegue">
-         <div class="carrito">
-          <img src="./assets/images/car.svg"   alt="carrito"/>
-        </div>
-          <div class="list">
-            <div class="list__buy">
-              <div class="list__item">
-                <figure>
-                  <img
-                    class="img__item"
-                    src="https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"
-                    alt=""
-                  />
-                </figure>
-                <div>
-                  <h3 class="title__item">Nombre Prodcuto</h3>
-                  <p class="parrafo__item">descripción</p>
+      <!--logo-->
+      <div class="logo">
+        <figure>
+          <a href="#" class="alogo">
+            <img src="./assets/images/logo1.png" alt="logo" />
+          </a>
+        </figure>
+      </div>
+
+      <!--menu-->
+      <div class="containItem">
+        <ul>
+          <li class="item"><a href="#"> Inicio</a></li>
+          <li class="item">Nosotros</li>
+          <li class="item">Tiendas</li>
+          <li class="item">Contacto</li>
+        </ul>
+      </div>
+      <!--info carro-->
+      <div class="info_carro">
+        <p>5 Productos</p>
+        <ul>
+          <li class="despliegue">
+            <div class="carrito">
+              <figure>
+                <img src="./assets/images/car.svg" alt="carrito" width="30px" />
+              </figure>
+            </div>
+            <div class="list">
+              <div class="list__buy">
+                <div class="list__item">
+                  <figure>
+                    <img
+                      class="img__item"
+                      src="https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"
+                      alt=""
+                    />
+                  </figure>
+                  <div>
+                    <h3 class="title__item">Nombre Prodcuto</h3>
+                    <p class="parrafo__item">descripción</p>
+                  </div>
+                </div>
+
+                <div class="list__item">
+                  <figure>
+                    <img
+                      class="img__item"
+                      src="https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"
+                      alt=""
+                    />
+                  </figure>
+                  <div>
+                    <h3 class="title__item">Nombre Prodcuto</h3>
+                    <p class="parrafo__item">descripción</p>
+                  </div>
+                </div>
+
+                <div class="list__item">
+                  <figure>
+                    <img
+                      class="img__item"
+                      src="https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"
+                      alt=""
+                    />
+                  </figure>
+                  <div>
+                    <h3 class="title__item">Nombre Prodcuto</h3>
+                    <p class="parrafo__item">descripción</p>
+                  </div>
                 </div>
               </div>
-
-              <div class="list__item">
-                <figure>
-                  <img
-                    class="img__item"
-                    src="https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"
-                    alt=""
-                  />
-                </figure>
-                <div>
-                  <h3 class="title__item">Nombre Prodcuto</h3>
-                  <p class="parrafo__item">descripción</p>
-                </div>
-              </div>
-
-              <div class="list__item">
-                <figure>
-                  <img
-                    class="img__item"
-                    src="https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"
-                    alt=""
-                  />
-                </figure>
-                <div>
-                  <h3 class="title__item">Nombre Prodcuto</h3>
-                  <p class="parrafo__item">descripción</p>
-                </div>
+              <div class="list__button">
+                <button class="btn">Comprar</button>
               </div>
             </div>
-            <div class="list__button">
-              <button class="btn">Comprar</button>
-            </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+      </div>
     </nav>
 
     <header class="header">
@@ -83,13 +117,14 @@
         <p class="parrafo">
           Servicios automotriz, repuestos, accesoriosy mucho más.
         </p>
-        <a href="#" class="btnProductos">Ver Productos</a>
+
+        <button class="btnProductos" id="btn_products">Ver Productos</button>
       </div>
     </header>
 
     <div class="body_title">
-        <h3>Destacados</h3>
-     
+      <h3>Destacados</h3>
+
       <div id="modal" class="bgModal">
         <div class="modal">
           <figure id="btnClose">
@@ -101,19 +136,27 @@
           </figure>
         </div>
       </div>
-      <button id="btnModal" class="button">Open Modal</button>
     </div>
 
+    <button id="btnModal" class="button">Open Modal</button>
     <section id="products" class="products">
       <!-- card -->
     </section>
+
+    <div id="items_prod">
+      <template id="destacados">
+        <div class="card">
+          <figure class="containImg">
+            <img src="" alt="" class="imgCard" />
+          </figure>
+          <h2 class="nameProduct"></h2>
+          <div>
+            <p class="price"></p>
+            <button class="add">Agregar</button>
+          </div>
+        </div>
+      </template>
+    </div>
     <script src="js/main.js" type="module"></script>
-    <script>
-
-
-            const btn_buy = document.querySelector(".containImg")
-            console.log(btn_buy)
-    </script>
- 
   </body>
 </html>
