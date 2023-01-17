@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
 
+
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +9,9 @@
   font-family: 'Open Sans', sans-serif;
 }
 :root {
-  --darkBlue: #3b4880;
+  --darkBlue: #764ABC;
   --lightblue: #7897c3;
-  --blue: #174a96;
+  --blue: #764ABC;
   --black: #303030;
   --white: #fefefe;
   --yelow: #e7b839;
@@ -44,6 +45,20 @@
 
   --titulo: 700;
 }
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
 .navbar {
   width: 100%;
   height: 80px;
@@ -176,6 +191,19 @@
   cursor: pointer;
 }
 
+.carrito {
+    height: 100%;
+}
+
+.carrito img{
+    height: 100%;
+}
+
+.carrito:hover {
+    height: 150%;
+    box-shadow: 0 0 15px rgb(rgb(241, 239, 239, 0.8);
+    
+}
 @media (max-width: 700px) {
   .navbar {
     height: 100px;
