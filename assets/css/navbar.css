@@ -86,6 +86,11 @@
 
   margin: 0 20px;
 }
+
+.item a{
+    text-decoration: none;
+    color: white;
+}
 .item:hover {
   cursor: pointer;
   border-top: 2px solid var(--yelow);
@@ -201,7 +206,7 @@
 
 .carrito:hover {
     height: 150%;
-    box-shadow: 0 0 15px rgb(rgb(241, 239, 239, 0.8);
+     
     
 }
 @media (max-width: 700px) {
