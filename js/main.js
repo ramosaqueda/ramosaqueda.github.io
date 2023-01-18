@@ -23,9 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const carsProducto = document.getElementById('products');
 const total_carro = document.getElementById('suma_productos');
+const listProductos = document.getElementById('lista_producto');
+
 //templates
 const templateProducto = document.getElementById('destacados').content;
 const templateCartTotal = document.getElementById('total_productos').content;
+const templateListaProductos = document.getElementById('lista_productos').content;
 
 const fragment = document.createDocumentFragment();
 
@@ -54,17 +57,16 @@ const paintCards = (data) => {
     templateProducto
       .querySelector('img')
       .setAttribute('src', producto.thumbnail);
-
     templateProducto.querySelector('h2').textContent = producto.title;
-
     templateProducto.querySelector('p').textContent = '$' + producto.price;
     templateProducto.querySelector('.add').dataset.id = producto.id;
-
     const clone = templateProducto.cloneNode(true);
     fragment.appendChild(clone);
   });
   carsProducto.appendChild(fragment);
 };
+
+
 
 const addCart = (e) => {
   if (e.target.classList.contains('add')) {
@@ -74,11 +76,12 @@ const addCart = (e) => {
 };
 
 const setMyCart = (ObjCart) => {
-  console.log(ObjCart);
+ 
   const SelProduct = {
     id: ObjCart.querySelector('.add').dataset.id,
     title: ObjCart.querySelector('h2').textContent,
     price: ObjCart.querySelector('p').textContent,
+    image: ObjCart.querySelector('img').src,
     cant: 1,
   };
 
@@ -87,7 +90,41 @@ const setMyCart = (ObjCart) => {
   }
 
   my_car[SelProduct.id] = { ...SelProduct };
-  console.log(my_car);
+   
+  paintListCarro(my_car[SelProduct.id].cant );
 };
 
+const paintListCarro = (total) => {
+  listProductos.innerHTML='';
+   Object.values(my_car).forEach(producto=>{
+
+    
+    templateListaProductos.querySelector('img').setAttribute('src', producto['image']);
+    templateListaProductos.querySelector('.title__item').textContent=producto['title']
+    templateListaProductos.querySelector('.precio__item').textContent=producto['price']
+    templateListaProductos.querySelector('.cant__item').textContent='Cant.: '+producto['cant']
+
+    
+    const clone = templateListaProductos.cloneNode(true);
+    fragment.appendChild(clone);
+                                            
+  })
+  listProductos.appendChild(fragment);
+  paintTotalCart()
+}
+
+const paintTotalCart = ()=>{
+  total_carro.innerHTML="";
+  if (Object.keys(my_car).length==0){
+    total_carro.innerHTML="No hay"
+  }
+
+  const nCantidad = Object.values(my_car).reduce((acc, { cant }) => acc + cant, 0)
+
+
+  templateCartTotal.querySelector('p').textContent = nCantidad;
+  const clone = templateCartTotal.cloneNode(true)
+ 
+  total_carro.appendChild(clone );
+}
 //https://www.youtube.com/watch?v=JL7Wo-ASah4

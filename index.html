@@ -35,6 +35,7 @@
 
       <!--menu-->
       <div class="containItem">
+        
         <ul>
           <li class="item"><a href="#"> Inicio</a></li>
           <li class="item">Nosotros</li>
@@ -42,9 +43,30 @@
           <li class="item">Contacto</li>
         </ul>
       </div>
+
+       
+       
+       
+      
       <!--info carro-->
 
       <template id="total_productos"><p></p> </template>
+      <template id="lista_productos"> 
+        <div class="list__item">
+        <figure>
+          <img
+            class="img__item"
+            src=""
+            alt=""
+          />
+        </figure>
+        <div>
+          <p class="title__item"></p>
+          <p class="precio__item"></p>
+          <p class="cant__item"></p>
+        </div>
+      </div>
+    </template>
       <div class="info_carro">
         <div id="suma_productos"></div>
         <ul>
@@ -55,48 +77,12 @@
               </figure>
             </div>
             <div class="list">
-              <div class="list__buy">
-                <div class="list__item">
-                  <figure>
-                    <img
-                      class="img__item"
-                      src="https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"
-                      alt=""
-                    />
-                  </figure>
-                  <div>
-                    <h3 class="title__item">Nombre Prodcuto</h3>
-                    <p class="parrafo__item">descripción</p>
-                  </div>
-                </div>
+              <div class="list__buy" id="lista_producto">
+               
 
-                <div class="list__item">
-                  <figure>
-                    <img
-                      class="img__item"
-                      src="https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"
-                      alt=""
-                    />
-                  </figure>
-                  <div>
-                    <h3 class="title__item">Nombre Prodcuto</h3>
-                    <p class="parrafo__item">descripción</p>
-                  </div>
-                </div>
+             
 
-                <div class="list__item">
-                  <figure>
-                    <img
-                      class="img__item"
-                      src="https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"
-                      alt=""
-                    />
-                  </figure>
-                  <div>
-                    <h3 class="title__item">Nombre Prodcuto</h3>
-                    <p class="parrafo__item">descripción</p>
-                  </div>
-                </div>
+                
               </div>
               <div class="list__button">
                 <button class="btn">Comprar</button>
@@ -105,12 +91,15 @@
           </li>
         </ul>
       </div>
-      <div>
+     
+
+     
         <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
           <i class="fas fa-bars"></i>
         </label>
-      </div>
+     
+
     </nav>
 
     <header class="header">
