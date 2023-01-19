@@ -35,7 +35,6 @@
 
       <!--menu-->
       <div class="containItem">
-        
         <ul>
           <li class="item"><a href="#"> Inicio</a></li>
           <li class="item">Nosotros</li>
@@ -44,29 +43,21 @@
         </ul>
       </div>
 
-       
-       
-       
-      
       <!--info carro-->
 
       <template id="total_productos"><p></p> </template>
-      <template id="lista_productos"> 
+      <template id="lista_productos">
         <div class="list__item">
-        <figure>
-          <img
-            class="img__item"
-            src=""
-            alt=""
-          />
-        </figure>
-        <div>
-          <p class="title__item"></p>
-          <p class="precio__item"></p>
-          <p class="cant__item"></p>
+          <figure>
+            <img class="img__item" src="" alt="" />
+          </figure>
+          <div>
+            <p class="title__item"></p>
+            <p class="precio__item"></p>
+            <p class="cant__item"></p>
+          </div>
         </div>
-      </div>
-    </template>
+      </template>
       <div class="info_carro">
         <div id="suma_productos"></div>
         <ul>
@@ -77,29 +68,22 @@
               </figure>
             </div>
             <div class="list">
-              <div class="list__buy" id="lista_producto">
-               
-
-             
-
-                
-              </div>
+              <div class="list__buy" id="lista_producto"></div>
               <div class="list__button">
-                <button class="btn">Comprar</button>
+                <button class="btn success fas fa-shopping-cart">
+                  Comprar
+                </button>
+                <button class="btn danger fas fa-trash">Vaciar Carrito</button>
               </div>
             </div>
           </li>
         </ul>
       </div>
-     
 
-     
-        <input type="checkbox" id="check" />
-        <label for="check" class="checkbtn">
-          <i class="fas fa-bars"></i>
-        </label>
-     
-
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
     </nav>
 
     <header class="header">
