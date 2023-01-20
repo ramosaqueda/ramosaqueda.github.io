@@ -1,4 +1,4 @@
-/*import { button, modal, btnClose } from './nodes.js';*/
+//import { button, modal, btnClose } from './nodes.js';*/
 
 /*
 import { view } from './printView.js';
@@ -19,16 +19,23 @@ window.addEventListener('load', view);
 
 document.addEventListener('DOMContentLoaded', () => {
   fetchData();
+  if (localStorage.getItem('my_car')) {
+    my_car = JSON.parse(localStorage.getItem('my_car'));
+    paintListCarro();
+  }
 });
 
 const carsProducto = document.getElementById('products');
 const total_carro = document.getElementById('suma_productos');
 const listProductos = document.getElementById('lista_producto');
-
+const toglee = document.getElementById('toglee');
 //templates
 const templateProducto = document.getElementById('destacados').content;
 const templateCartTotal = document.getElementById('total_productos').content;
-const templateListaProductos = document.getElementById('lista_productos').content;
+
+const containItem = document.getElementById('containItem');
+const templateListaProductos =
+  document.getElementById('lista_productos').content;
 
 const fragment = document.createDocumentFragment();
 
@@ -36,12 +43,28 @@ carsProducto.addEventListener('click', (e) => {
   addCart(e);
 });
 
+toglee.addEventListener('click', (e) => {
+  if ( containItem.style.left ==0) {
+    containItem.style.left ='-300px';
+  }else
+  {
+    containItem.style.left =0
+  }
+  
+});
+
+const EmptyCart = document.getElementById('EmptyCart');
+
+EmptyCart.addEventListener('click', (e) => {
+  Empty_Cart(e);
+});
+
 let my_car = {};
 
 const fetchData = async () => {
   try {
     const res = await fetch(
-      'https://api.mercadolibre.com/sites/MLC/search?q=accesorios_vehiculos&'
+      'https://api.mercadolibre.com/sites/MLC/search?q=accesorios_vehiculos&',
     );
 
     const data = await res.json();
@@ -66,8 +89,6 @@ const paintCards = (data) => {
   carsProducto.appendChild(fragment);
 };
 
-
-
 const addCart = (e) => {
   if (e.target.classList.contains('add')) {
     setMyCart(e.target.parentElement.parentElement);
@@ -76,7 +97,6 @@ const addCart = (e) => {
 };
 
 const setMyCart = (ObjCart) => {
- 
   const SelProduct = {
     id: ObjCart.querySelector('.add').dataset.id,
     title: ObjCart.querySelector('h2').textContent,
@@ -90,41 +110,58 @@ const setMyCart = (ObjCart) => {
   }
 
   my_car[SelProduct.id] = { ...SelProduct };
-   
-  paintListCarro(my_car[SelProduct.id].cant );
+  paintListCarro(my_car[SelProduct.id].cant);
 };
 
 const paintListCarro = (total) => {
-  listProductos.innerHTML='';
-   Object.values(my_car).forEach(producto=>{
+  listProductos.innerHTML = '';
+  Object.values(my_car).forEach((producto) => {
+    templateListaProductos
+      .querySelector('img')
+      .setAttribute('src', producto['image']);
+    templateListaProductos.querySelector('.title__item').textContent =
+      producto['title'];
+    templateListaProductos.querySelector('.precio__item').textContent =
+      producto['price'];
+    templateListaProductos.querySelector('.cant__item').textContent =
+      'Cant.: ' + producto['cant'];
 
-    
-    templateListaProductos.querySelector('img').setAttribute('src', producto['image']);
-    templateListaProductos.querySelector('.title__item').textContent=producto['title']
-    templateListaProductos.querySelector('.precio__item').textContent=producto['price']
-    templateListaProductos.querySelector('.cant__item').textContent='Cant.: '+producto['cant']
-
-    
     const clone = templateListaProductos.cloneNode(true);
     fragment.appendChild(clone);
-                                            
-  })
+  });
   listProductos.appendChild(fragment);
-  paintTotalCart()
-}
+  paintTotalCart();
+  localStorage.setItem('my_car', JSON.stringify(my_car));
+};
 
-const paintTotalCart = ()=>{
-  total_carro.innerHTML="";
-  if (Object.keys(my_car).length==0){
-    total_carro.innerHTML="No hay"
+const paintTotalCart = () => {
+  total_carro.innerHTML = '';
+  if (Object.keys(my_car).length == 0) {
+    total_carro.innerHTML = 'No hay';
+    return;
   }
 
-  const nCantidad = Object.values(my_car).reduce((acc, { cant }) => acc + cant, 0)
-
+  const nCantidad = Object.values(my_car).reduce(
+    (acc, { cant }) => acc + cant,
+    0,
+  );
 
   templateCartTotal.querySelector('p').textContent = nCantidad;
-  const clone = templateCartTotal.cloneNode(true)
- 
-  total_carro.appendChild(clone );
-}
+  const clone = templateCartTotal.cloneNode(true);
 
+  total_carro.appendChild(clone);
+};
+
+const SaveLocalStorage = () => {
+  const ls = 0;
+  if (ls == 0) {
+    console.log('estoy solo probando el prettier json');
+  }
+};
+
+const Empty_Cart = () => {
+  my_car = {};
+  paintListCarro();
+};
+
+//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
