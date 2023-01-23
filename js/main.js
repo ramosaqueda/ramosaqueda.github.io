@@ -44,7 +44,8 @@ carsProducto.addEventListener('click', (e) => {
 });
 
 toglee.addEventListener('click', (e) => {
-  if ( containItem.style.left ==0) {
+  console.log(containItem.style.left)
+  if ( containItem.style.left==='0px') {
     containItem.style.left ='-300px';
   }else
   {
