@@ -1,21 +1,10 @@
-//import { button, modal, btnClose } from './nodes.js';*/
-
-/*
-import { view } from './printView.js';
-
-import { products } from '../utils/data.js';
-button.addEventListener('click', () => {
-  modal.style.clipPath =
-    'polygon(50% 0%, 100% 0, 100% 60%, 100% 100%, 0 100%, 0% 60%, 0 0)';
-});
+ import { button, modal, btnClose } from './nodes.js'; 
 
 btnClose.addEventListener('click', () => {
   modal.style.clipPath =
     'polygon(50% 0%, 50% 47%, 100% 60%, 50% 47%, 50% 47%, 0% 60%, 50% 47%)';
 });
-
-window.addEventListener('load', view);
-*/
+ 
 
 document.addEventListener('DOMContentLoaded', () => {
   fetchData();
@@ -29,9 +18,19 @@ const carsProducto = document.getElementById('products');
 const total_carro = document.getElementById('suma_productos');
 const listProductos = document.getElementById('lista_producto');
 const toglee = document.getElementById('toglee');
+const prod_modal = document.getElementById('prod_modal');
+
+
+
+
+
+
+
+
 //templates
 const templateProducto = document.getElementById('destacados').content;
 const templateCartTotal = document.getElementById('total_productos').content;
+const template_prop_producto = document.getElementById('popup_producto').content;
 
 const containItem = document.getElementById('containItem');
 const templateListaProductos =
@@ -39,12 +38,19 @@ const templateListaProductos =
 
 const fragment = document.createDocumentFragment();
 
+
+
 carsProducto.addEventListener('click', (e) => {
   addCart(e);
+  
 });
 
+
+
+
 toglee.addEventListener('click', (e) => {
-  console.log(containItem.style.left)
+  
+
   if ( containItem.style.left==='0px') {
     containItem.style.left ='-300px';
   }else
@@ -69,18 +75,49 @@ const fetchData = async () => {
     );
 
     const data = await res.json();
-    paintCards(data);
+    if (paintCards(data)){
+      getContainImg();
+    };
+
+
   } catch (error) {
     console.log(error);
   }
 };
 
+const getContainImg = () => {
+  const elements = document.querySelectorAll('.containImg');
+  for(var i = 0; i < elements.length; i++){
+   
+    elements[i].addEventListener('click',function(elements){
+      
+      const obj_Product = (elements.target.parentElement.parentElement)
+
+   
+      //setMyCart(obj_Product);
+
+      
+     
+      paintPopuProdcut(obj_Product);
+      modal.style.clipPath =
+      'polygon(50% 0%, 100% 0, 100% 60%, 100% 100%, 0 100%, 0% 60%, 0 0)';
+ });
+}
+
+}
+
+
+ 
+
 const paintCards = (data) => {
+
+  try {
   const productos = data.results;
   productos.forEach((producto) => {
     templateProducto
       .querySelector('img')
       .setAttribute('src', producto.thumbnail);
+    templateProducto.querySelector('img').setAttribute('alt', producto.id);
     templateProducto.querySelector('h2').textContent = producto.title;
     templateProducto.querySelector('p').textContent = '$' + producto.price;
     templateProducto.querySelector('.add').dataset.id = producto.id;
@@ -88,6 +125,14 @@ const paintCards = (data) => {
     fragment.appendChild(clone);
   });
   carsProducto.appendChild(fragment);
+  return(true)
+} catch (error) {
+  console.log(error);
+
+}
+
+ 
+
 };
 
 const addCart = (e) => {
@@ -113,6 +158,7 @@ const setMyCart = (ObjCart) => {
   my_car[SelProduct.id] = { ...SelProduct };
   paintListCarro(my_car[SelProduct.id].cant);
 };
+
 
 const paintListCarro = (total) => {
   listProductos.innerHTML = '';
@@ -153,6 +199,34 @@ const paintTotalCart = () => {
   total_carro.appendChild(clone);
 };
 
+
+const paintPopuProdcut = (obj_prod) => {
+  prod_modal.innerHTML='';
+
+  /*const id = obj_Product.querySelector('.add');
+  const title=  obj_Product.querySelector('h2')
+  const price = obj_Product.querySelector('p')
+  const image =  obj_Product.querySelector('img')
+  */
+  
+
+
+  template_prop_producto.querySelector('.nameProductPopUp').textContent =  obj_prod.querySelector('h2').textContent;
+  template_prop_producto.querySelector('.pricePopUp').textContent =  obj_prod.querySelector('p').textContent;
+ 
+ 
+  template_prop_producto
+  .querySelector('img')
+  .setAttribute('src', obj_prod.querySelector('img').getAttribute('src'));
+  
+ 
+  
+  const clone = template_prop_producto.cloneNode(true);
+  prod_modal.appendChild(clone);
+
+  //template_prop_producto
+
+}
 const SaveLocalStorage = () => {
   const ls = 0;
   if (ls == 0) {
@@ -164,5 +238,7 @@ const Empty_Cart = () => {
   my_car = {};
   paintListCarro();
 };
+
+
 
 //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

@@ -1,11 +1,4 @@
-.test {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 30vh;
-  background: #fff;
-}
+
 .bgModal {
   position: fixed;
   top: 0px;
@@ -31,8 +24,9 @@
   width: 550px;
   height: 500px;
   background: #fff;
-  border-radius: 15px;
+  border-radius: 15px; 
   position: relative;
+
 }
 .button {
   width: 200px;
@@ -52,8 +46,39 @@
   top: 15px;
   right: 15px;
   cursor: pointer;
+  
 }
 .imgIcon {
   width: 15px;
   height: 15px;
 }
+
+.img_prod_pop {
+  height: 250px;
+
+}
+
+.nameProductPopUp  {
+ 
+  color: var(--lightBlue);
+}
+
+.pricePopUp {
+  font-size: 40px;
+  font-weight: bold;
+  
+  text-align: end;
+  padding-right: 30px;
+
+
+}
+
+.add_cart {  
+  font-weight: bold;
+  text-decoration: none;
+  text-align: end;
+  color: brown;
+  padding-right: 30px;
+}
+
+

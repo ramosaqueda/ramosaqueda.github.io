@@ -16,7 +16,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/header.css" />
     <link rel="stylesheet" href="./assets/css/section.css" />
@@ -106,18 +106,55 @@
 
       <div id="modal" class="bgModal">
         <div class="modal">
-          <figure id="btnClose">
-            <img
-              class="imgIcon"
-              src="./assets/images/iconClose.png"
-              alt="Close"
-            />
-          </figure>
+          <section id="prod_modal">
+        
+         
+        </section>
+
+        <figure id="btnClose">
+          <img
+            class="imgIcon"
+            src="./assets/images/iconClose.png"
+            alt="Close"
+          />  
+        </figure>
         </div>
+        </section>
       </div>
     </div>
 
-    <button id="btnModal" class="button">Open Modal</button>
+ 
+
+ 
+    <template id="popup_producto">
+     <div class="preview" >
+    
+      <figure class="containImg">
+        <img src="" alt="" class="img_prod_pop" />
+      </figure>
+      <h1 class="nameProductPopUp"> </h1>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+      
+      </div>
+      <p>Ups. El API no devuelve categoria, pero lo dejaré asi por ahora</p>
+      <div class="pricePopUp"></div>
+      <div class="buttons">
+     
+         <a href="#" class="add_cart"> + Add to cart</a>
+
+        
+        
+        
+      </div>
+   </div>
+    
+    </template>
+
     <section id="products" class="products">
       <!-- card -->
     </section>
